@@ -1,0 +1,27 @@
+{% extends 'Interface/base.html' %}
+{% load static %}
+
+{% block Output %}
+<section id="gallery" class="section section-gallery scrollspy">
+	<div class="container">
+		<h4 class="center "><span class="teal-text">Visualize</span> 
+			<a class="waves-effect waves-light btn modal-trigger">{{word}}</a>
+			<!-- Modal Structure -->
+			<div id="modal1" class="modal">
+				<div class="modal-content">
+					<h4>{{word}}</h4>
+					<p>The image shown are extracted from a database such that they are semantically closed to your selected word</p>
+				</div>
+			</div>
+		</h4>
+		<hr>
+		<div class="row">
+				{% for img_link in img_set %}
+				<div class="col s12 m3">
+						<img src="{{img_link}}" class="material-boxed responsive-img"></img>
+				</div>
+				{% endfor %}
+		</div>
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'Interface/base.html' %}
+
+{% load static %}
+
+{% block Input %}
+<!-- Section: Contact -->
+<section id="contact " class="section section-contact scrollspy valign-wrapper">
+    <div class="container">
+        <div class="row">
+            <div>
+                <div class="card-panel teal white-text center">
+                    <i class="large material-icons">local_library</i>
+                    <h5>Search Related Visuals</h5>
+                    <p>Our AI empowers your words with Visual Semantics, <br>
+                        Just enter the word, and imagine!</p>
+                </div>
+            </div>
+            <div>
+                <div class="card-panel lighten-3">
+                    <form method="post">
+                        {% csrf_token %}
+                        <h5 class="center-align">Enter Your Words</h5>
+                        <hr>
+                        <blockquote><label>Select Word</label></blockquote>
+                        <div class="input-field">
+                            {{form.words}}
+                        </div>
+                        <div class="center-align">
+                            <button type="Submit" class="btn waves-effect waves-light">Visualize
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
