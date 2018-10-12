@@ -7,7 +7,10 @@ For more information on this file, see
 https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
 """
 
-import os
+import os, sys
+
+sys.path.append('/home/word2visual/Neuro-Flash/Word2Visuals/InterfaceW2V/')
+sys.path.append('/home/word2visual/Neuro-Flash/Word2Visuals/VEnv/Lib/site-packages')
 
 from django.core.wsgi import get_wsgi_application
 
