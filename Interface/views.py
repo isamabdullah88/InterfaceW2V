@@ -19,7 +19,7 @@ class ImageView(TemplateView):
 	def post(self, request):
 		print('post recieved!')
 		form_post = WordForm(request.POST)
-		img_set = []
+		img_score_set = []
 		if form_post.is_valid():
 			print('yup!')
 			print()
@@ -29,8 +29,10 @@ class ImageView(TemplateView):
 
 			with open('./Interface/static/Results/'+file_name+'.txt', 'r') as f:
 				for line in f:
-					l = line.split(',')[0]
-					img_set += [l]
+					l1 = line.split(',')[0]
+					l2 = float(line.split(',')[1][6:11])
 
-		context = {'img_set': img_set, 'form': self.form, 'word': file_name}
+					img_score_set += [[l1, l2]]
+
+		context = {'img_score_set': img_score_set, 'form': self.form, 'word': file_name}
 		return render(request, self.out_template, context)
